@@ -3,37 +3,30 @@ import BookDetail from "../../Layout/BookDetail/BookDetail";
 import { useEffect, useState } from "react";
 import Button from "../../Layout/Button/Button";
 
+import PropTypes from "prop-types";
+
 // const URL = "https://www.googleapis.com/books/v1/volumes?q=Poetry&key=";
 // const MAX = "&maxResults=40";
 
-const BASE_URL = "https://www.googleapis.com/books/v1/volumes?";
-const KEY = `&key=${import.meta.env.VITE_BOOK_API_KEY}`;
-const MAX_RESULTS = "&maxResults=40";
-
-const Books = () => {
-  const [books, setBooks] = useState([]);
-  const [fitterItem, setFitterItem] = useState([]);
-  const [category, setCategory] = useState("All");
-
-  const fetchData = async (category) => {
-    const QUERY = `q=${category}`;
-    try {
-      const res = await fetch(`${BASE_URL}${QUERY}${KEY}${MAX_RESULTS}`);
-      const data = await res.json();
-      setBooks(data.items);
-      setFitterItem(data.items);
-    } catch (error) {
-      console.log("Error fetching data :", error);
-    }
-  };
+const Books = ({ book, fetchData }) => {
+  const [category, setCategory] = useState("all");
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    fetchData(category);
-  }, [category]);
+    fetchData(category, currentPage);
+  }, [category, currentPage]);
 
   const handleButtonClick = (category) => {
     setCategory(category);
+    setCurrentPage(1);
   };
+
+  const totalPages = Math.ceil(book.length / 12);
+  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+
+  const handleNextPage = () => setCurrentPage((prevPage) => prevPage + 1); // Add a function to handle going to the next page
+  const handlePrevPage = () =>
+    setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : prevPage)); // Add a function to handle going to the previous page
 
   return (
     <div className="max-w-screen-2xl container mx-auto px-4 mb-12">
@@ -46,14 +39,27 @@ const Books = () => {
             <Button
               title="All Books"
               onClick={() => handleButtonClick("all")}
+              active={category === "all"}
             />
             <Button
               title="Poetry"
               onClick={() => handleButtonClick("Poetry")}
+              active={category === "Poetry"}
             />
             <Button
               title="Fiction"
               onClick={() => handleButtonClick("Fiction")}
+              active={category === "Fiction"}
+            />
+            <Button
+              title="Computer"
+              onClick={() => handleButtonClick("Computer")}
+              active={category === "Computer"}
+            />
+            <Button
+              title="Programer"
+              onClick={() => handleButtonClick("Programer")}
+              active={category === "Programer"}
             />
           </div>
 
@@ -76,11 +82,26 @@ const Books = () => {
             </div>
           </div>
         </div>
-
-        <BookDetail books={books} />
+        <BookDetail books={book} />
+      </div>
+      <div className="max-w-screen-2xl container mx-auto px-4 mb-12 flex justify-between mt-10">
+        <Button onClick={handlePrevPage} title="Previous Page" />
+        {pageNumbers.map((pageNumber) => (
+          <Button
+            key={pageNumber}
+            onClick={() => handleNextPage(pageNumber)}
+            title={`Page ${pageNumber}`}
+          />
+        ))}
+        <Button onClick={handleNextPage} title="Next Page" />
       </div>
     </div>
   );
+};
+
+Books.propTypes = {
+  book: PropTypes.array.isRequired,
+  fetchData: PropTypes.func.isRequired,
 };
 
 export default Books;

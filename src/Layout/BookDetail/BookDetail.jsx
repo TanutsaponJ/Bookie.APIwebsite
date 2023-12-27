@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 const BookDetail = ({ books }) => {
   return (
     <div className="grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 items-center justify-center gap-16 mx-auto ">
-      {books.slice(0, 12).map((book, index) => {
+      {books.slice(0, 8).map((book, index) => {
         const thumbnail = book.volumeInfo?.imageLinks?.thumbnail;
         const title = book.volumeInfo.title;
         const amount = book.saleInfo?.listPrice?.amount;
