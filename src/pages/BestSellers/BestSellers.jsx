@@ -47,7 +47,7 @@ const renderBook = (item) => {
 
   // Return the JSX for each book
   return (
-    <SwiperSlide key={item.id}>
+    <SwiperSlide key={item.id} className="my-20 px-10">
       <Link to={`/book/${item.id}`}>
         <img
           src={thumbnail}

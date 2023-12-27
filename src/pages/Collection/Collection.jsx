@@ -1,11 +1,21 @@
 import Button from "../../Layout/Button/Button";
-
 import Aos from "aos";
 import "aos/dist/aos.css";
-
 import { useEffect } from "react";
 
+// Function to render each paragraph
+const renderParagraph = (text, animation, duration) => (
+  <p
+    data-Aos={animation}
+    data-Aos-duration={duration}
+    className="mt-4 text-2xl font-sm font-bodoni"
+  >
+    {text}
+  </p>
+);
+
 const Collection = () => {
+  // Initialize AOS on component mount
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
@@ -27,33 +37,22 @@ const Collection = () => {
           </h1>
         </div>
         <div className="z-10">
-          <p
-            data-Aos="fade-left"
-            data-Aos-duration="5000"
-            className="mt-4  text-2xl font-sm font-bodoni"
-          >
-            Our Exploring Worlds collection celebrates the beauty of diverse
-            storytelling, inviting readers to embark on an enriching journey
-            through a multitude of narratives, genres, and perspectives.
-          </p>
-          <p
-            data-Aos="fade-right"
-            data-Aos-duration="7000"
-            className="mt-4  text-2xl font-sm font-bodoni"
-          >
-            Discover captivating stories from various cultures and regions
-            worldwide, offering a rich tapestry of traditions, beliefs, and
-            customs.
-          </p>
-          <p
-            data-Aos="fade-up"
-            data-Aos-duration="6000"
-            className="mt-4  text-2xl font-sm font-bodoni"
-          >
-            Delve into a spectrum of genres, from gripping thrillers and
-            heartwarming romances to thought-provoking historical narratives and
-            fantastical adventures.
-          </p>
+          {/* Render each paragraph */}
+          {renderParagraph(
+            "Our Exploring Worlds collection celebrates the beauty of diverse storytelling, inviting readers to embark on an enriching journey through a multitude of narratives, genres, and perspectives.",
+            "fade-left",
+            "5000"
+          )}
+          {renderParagraph(
+            "Discover captivating stories from various cultures and regions worldwide, offering a rich tapestry of traditions, beliefs, and customs.",
+            "fade-right",
+            "7000"
+          )}
+          {renderParagraph(
+            "Delve into a spectrum of genres, from gripping thrillers and heartwarming romances to thought-provoking historical narratives and fantastical adventures.",
+            "fade-up",
+            "6000"
+          )}
         </div>
 
         <div className="flex justify-center mt-4 w-full z-10">
