@@ -13,7 +13,7 @@ This project has been a labor of love and learning. Implementing React JS and Ta
 
 ## Demo 
 
-###  🚀 [https://splendid-arithmetic-c1cbb6.netlify.app/](https://bookiereactbookapi.netlify.app/)
+###  🚀 https://bookiereactbookapi.netlify.app
 
 
 
