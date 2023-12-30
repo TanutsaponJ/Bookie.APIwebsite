@@ -3,14 +3,14 @@ import Button from "../../Layout/Button/Button";
 
 const Gallery = () => {
   const Images = [
-    "/public/images/GalleryImages/gallery1.jpg",
-    "/public/images/GalleryImages/gallery2.jpg",
-    "/public/images/GalleryImages/gallery3.jpg",
-    "/public/images/GalleryImages/gallery4.jpg",
-    "/public/images/GalleryImages/gallery5.jpg",
-    "/public/images/GalleryImages/gallery6.jpg",
-    "/public/images/GalleryImages/gallery7.jpg",
-    "/public/images/GalleryImages/gallery8.jpg",
+    "/public/Images/GalleryImages/gallery1.jpg",
+    "/public/Images/GalleryImages/gallery2.jpg",
+    "/public/Images/GalleryImages/gallery3.jpg",
+    "/public/Images/GalleryImages/gallery4.jpg",
+    "/public/Images/GalleryImages/gallery5.jpg",
+    "/public/Images/GalleryImages/gallery6.jpg",
+    "/public/Images/GalleryImages/gallery7.jpg",
+    "/public/Images/GalleryImages/gallery8.jpg",
   ];
 
   return (
