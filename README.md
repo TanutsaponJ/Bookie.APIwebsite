@@ -13,8 +13,7 @@ This project has been a labor of love and learning. Implementing React JS and Ta
 
 ## Demo 
 
-###  🚀 https://bookiereactbookapi.netlify.app
-
+###  🚀 [bookieapi.netlify.app](https://bookieapi.netlify.app/)
 
 
 
