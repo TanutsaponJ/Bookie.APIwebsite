@@ -1,5 +1,6 @@
 import Button from "../../Layout/Button/Button";
-import HeroImage from "/public/Images/heroImage.jpg";
+
+import HeroImage from "../../assets/Images/heroImage.jpg";
 import { GiClick } from "react-icons/gi";
 
 // Function to render the hero image

@@ -1,18 +1,26 @@
 import { Link } from "react-router-dom";
 import Button from "../../Layout/Button/Button";
 
+import gallery1 from "../../assets/GalleryImages/gallery1.jpg";
+import gallery2 from "../../assets/GalleryImages/gallery2.jpg";
+import gallery3 from "../../assets/GalleryImages/gallery3.jpg";
+import gallery4 from "../../assets/GalleryImages/gallery4.jpg";
+import gallery5 from "../../assets/GalleryImages/gallery5.jpg";
+import gallery6 from "../../assets/GalleryImages/gallery6.jpg";
+import gallery7 from "../../assets/GalleryImages/gallery7.jpg";
+import gallery8 from "../../assets/GalleryImages/gallery8.jpg";
+
 const Gallery = () => {
   const Images = [
-    "/public/Images/GalleryImages/gallery1.jpg",
-    "/public/Images/GalleryImages/gallery2.jpg",
-    "/public/Images/GalleryImages/gallery3.jpg",
-    "/public/Images/GalleryImages/gallery4.jpg",
-    "/public/Images/GalleryImages/gallery5.jpg",
-    "/public/Images/GalleryImages/gallery6.jpg",
-    "/public/Images/GalleryImages/gallery7.jpg",
-    "/public/Images/GalleryImages/gallery8.jpg",
+    gallery1,
+    gallery2,
+    gallery3,
+    gallery4,
+    gallery5,
+    gallery6,
+    gallery7,
+    gallery8,
   ];
-
   return (
     <div className="max-w-screen-2xl mx-auto container px-4 py-6">
       <h2 className="title">Welcome To Own Gallery</h2>

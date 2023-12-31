@@ -2,6 +2,7 @@ import Button from "../../Layout/Button/Button";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import collectionImage from "../../assets/images/Collection.png";
 
 // Function to render each paragraph
 const renderParagraph = (text, animation, duration) => (
@@ -21,7 +22,10 @@ const Collection = () => {
   }, []);
 
   return (
-    <div className="bg-[url('/public/images/Collection.png')] bg-cover bg-center bg-no-repeat xl:px-28 px-4 my-20 h-screen max-w-screen-2xl mx-auto relative">
+    <div
+      className="bg-cover bg-center bg-no-repeat xl:px-28 px-4 my-20 h-screen max-w-screen-2xl mx-auto relative"
+      style={{ backgroundImage: `url(${collectionImage})` }}
+    >
       <div className="bg-black/50 absolute top-0 left-0 w-full h-full" />
       <div className="w-full h-full flex flex-col justify-center text-center text-white p-4 gap-4 z-0">
         <div className="z-10">
